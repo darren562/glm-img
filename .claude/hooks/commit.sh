@@ -17,17 +17,24 @@ if [ -z "$COMMIT_MSG" ]; then
     else
         COMMIT_MSG="chore: 更新代码"
     fi
-    echo "自动生成提交信息: $CONMIT_MSG"
+    echo "自动生成提交信息: $COMMIT_MSG"
 fi
 
 # 执行提交
 echo "🚀 添加文件到暂存区..."
 git add .
 
-echo "💾 创建提交..."
-git commit -m "$CONMIT_MSG
+# 使用临时文件创建提交信息
+TEMP_FILE=$(mktemp)
+echo "$COMMIT_MSG" > "$TEMP_FILE"
+echo "" >> "$TEMP_FILE"
+echo "Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>" >> "$TEMP_FILE"
 
-Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+echo "💾 创建提交..."
+git commit -F "$TEMP_FILE"
+
+# 清理临时文件
+rm -f "$TEMP_FILE"
 
 echo "✅ 提交完成！"
 echo "📝 提交信息: $COMMIT_MSG"
