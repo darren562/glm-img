@@ -12,7 +12,7 @@ class GLMApi {
       throw new Error("缺少GLM_API_KEY环境变量");
     }
 
-    console.log("[GLMApi] GLM-image API 初始化成功");
+    console.log("[GLMApi] GLM-image API 初始化成功 ✨");
   }
 
   /**

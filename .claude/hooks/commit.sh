@@ -38,7 +38,7 @@ echo "🚀 添加文件到暂存区..."
 git add .
 
 echo "💾 创建提交..."
-git commit -m "$(cat <<'EOF'
+git commit -m "$(cat <<EOF
 $CONMIT_MSG
 
 Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
