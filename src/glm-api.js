@@ -11,6 +11,8 @@ class GLMApi {
     if (!this.apiKey) {
       throw new Error("缺少GLM_API_KEY环境变量");
     }
+
+    console.log("[GLMApi] GLM-image API 初始化成功");
   }
 
   /**
@@ -88,10 +90,7 @@ class GLMApi {
       console.warn("图片编辑API不可用，退回到生成API:", error.message);
       try {
         const editPrompt = `请根据以下指令编辑图片：${prompt}`;
-        return await this.generateImage(editPrompt, {
-          ...options,
-          image: image,
-        });
+        return await this.generateImage(editPrompt, options);
       } catch (fallbackError) {
         console.error(
           "图片编辑失败:",
