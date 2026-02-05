@@ -1,6 +1,6 @@
 {
   "name": "glm-img-project",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "基于智谱AI GLM-image模型(glm-image)的图片生成服务",
   "main": "src/server.js",
   "scripts": {
