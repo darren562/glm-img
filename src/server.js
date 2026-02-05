@@ -31,4 +31,5 @@ app.post('/api/images/edit', upload.single('image'), editImage);
 app.listen(PORT, () => {
   console.log(`服务器运行在端口 ${PORT}`);
   console.log(`访问 http://localhost:${PORT} 查看服务状态`);
+  console.log(`环境: ${process.env.NODE_ENV || 'development'}`);
 });
